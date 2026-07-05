@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2026-07-05
+
+### Added
+- `--version` flag (uses `CARGO_PKG_VERSION`)
+- `AGENTS.md` with release checklist for automated tooling
+
 ## [0.1.4] - 2026-07-05
 
 ### Added
