@@ -14,6 +14,8 @@ Writing and maintaining documentation is tedious. WakaWiki delegates this to an 
 4. **Write** — Outputs well-structured Markdown docs into `wakawiki/`
 5. **Update** — On subsequent runs, only refreshes changed files
 
+No LLM needed? Use `wakawiki --scan` for instant heuristic docs instead.
+
 ## Output Structure
 
 ```

@@ -31,6 +31,9 @@ features:
   - icon: ⚡
     title: CI Ready
     details: One-shot -p mode works in GitHub Actions. Schedule auto-updates via PR with zero manual effort.
+  - icon: ⚙️
+    title: Heuristic Scan Mode
+    details: Run wakawiki --scan for instant, zero-LLM documentation. Parses your source code directly in milliseconds.
 ---
 
 <div style="text-align: center; margin-top: 1rem; opacity: 0.6; font-size: 0.875rem;">

@@ -26,8 +26,10 @@ wakawiki [OPTIONS] [PROMPT]
 |--------|-------------|
 | `--init` | Interactive setup: choose provider, set API key, pick model |
 | `-p`, `--print` | Non-interactive one-shot mode (CI-friendly) |
+| `--scan` | Heuristic scan (no LLM) — fast, deterministic docs |
 | `--update` | Refresh existing `wakawiki/` docs with incremental diff |
 | `-h`, `--help` | Show help |
+| `--version` | Print version and exit |
 
 ## Interactive Mode
 
@@ -55,3 +57,18 @@ Once you have an existing `wakawiki/` directory, run `--update` to refresh only 
 ```bash
 wakawiki --update
 ```
+
+## Heuristic Scan Mode
+
+Run `--scan` for instant, deterministic documentation without an LLM. Ideal for CI or when you just need a structural overview.
+
+```bash
+wakawiki --scan
+```
+
+The scan mode:
+- Parses Rust source files for `pub` items and doc comments
+- Reads project metadata from `Cargo.toml`
+- Generates `index.md` (dependencies, directory tree) and `architecture.md` (API reference)
+- Respects your `.gitignore` for file filtering
+- Runs in milliseconds
