@@ -12,6 +12,12 @@ hero:
     - theme: alt
       text: View on GitHub
       link: https://github.com/sonyarianto/wakawiki
+
+  - html: |
+      <p style="margin-top: 2rem; color: var(--vp-c-text-2); font-size: 0.875rem;">
+        Inspired by <a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener" style="font-weight: 600;">OpenWiki</a>
+      </p>
+
 features:
   - icon: 🤖
     title: Agent-Driven
