@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.6] - 2026-07-05
+
+### Added
+- `--scan` mode: heuristic documentation without an LLM — parses Rust source files for `pub` items, doc comments, module structure, and project metadata. Runs in milliseconds.
+- `--version` flag
+
+### Changed
+- Animated spinner with progress messages during LLM API calls
+- Tool call progress output now shown in all modes (one-shot, update, interactive)
+- File filtering in `--scan` respects `.gitignore` for any codebase
+
+### Fixed
+- 120-second timeout on all provider HTTP requests (OpenAI, Anthropic, custom)
+- 120-second timeout on opencode subprocess calls
+- Removed hard tool call iteration cap (previously 100); agent runs until completion
+
+### Documentation
+- VitePress docs updated with `--scan` and `--version` usage
+
 ## [0.1.5] - 2026-07-05
 
 ### Added

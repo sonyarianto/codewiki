@@ -119,7 +119,8 @@ fn read_dependencies(project_dir: &Path) -> Vec<(String, String)> {
             let ver = if rest.trim().starts_with('{') {
                 rest.split('"').nth(1).unwrap_or("*").to_string()
             } else {
-                rest.split(',').next()
+                rest.split(',')
+                    .next()
                     .map(|v| v.trim().trim_matches('"').to_string())
                     .unwrap_or_else(|| "*".into())
             };
@@ -142,7 +143,10 @@ fn collect_source_files(project_dir: &Path) -> Vec<String> {
         .sort_by_file_name(|a, b| a.cmp(b))
         .filter_entry(move |entry| {
             let path = entry.path();
-            let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            let name = path
+                .file_name()
+                .map(|n| n.to_string_lossy().to_string())
+                .unwrap_or_default();
             name != ".git" && name != "wakawiki"
         });
 
@@ -164,9 +168,7 @@ fn collect_source_files(project_dir: &Path) -> Vec<String> {
             .unwrap_or(entry.path())
             .to_string_lossy()
             .to_string();
-        if rel_path.starts_with("wakawiki/")
-            || rel_path.ends_with(".lock")
-        {
+        if rel_path.starts_with("wakawiki/") || rel_path.ends_with(".lock") {
             continue;
         }
         files.push(rel_path);
@@ -447,7 +449,8 @@ mod tests {
 
     #[test]
     fn parse_enum_with_doc() {
-        let src = "/// Represents providers\npub enum LlmProvider {\n    OpenAi,\n    Anthropic,\n}\n";
+        let src =
+            "/// Represents providers\npub enum LlmProvider {\n    OpenAi,\n    Anthropic,\n}\n";
         let info = parse_rust_file(src);
         assert_eq!(info.items.len(), 1);
         assert_eq!(info.items[0].kind, "enum");
