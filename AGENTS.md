@@ -13,6 +13,7 @@ Before committing the release:
 - Run `cargo test`
 - Ensure no unstaged changes in `Cargo.lock`
 - Update `CHANGELOG.md` with the new version's changes
+- Update `docs/index.md` with the new version number in the homepage badge
 - Update `docs/public/llms.txt` if any new pages or links were added
 
 Tag format: `v{version}` (e.g. `v0.1.4`)

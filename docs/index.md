@@ -36,6 +36,10 @@ features:
     details: Run wakawiki --scan for instant, zero-LLM documentation. Parses your source code directly in milliseconds.
 ---
 
+<div style="text-align: center; margin-top: 2rem;">
+  <a href="https://github.com/sonyarianto/wakawiki/releases" style="display: inline-block; background: var(--vp-c-brand-1); color: #fff; padding: 0.25rem 0.75rem; border-radius: 1rem; font-size: 0.875rem; font-weight: 600; text-decoration: none;">v0.1.7</a>
+</div>
+
 <div style="text-align: center; margin-top: 1rem; opacity: 0.6; font-size: 0.875rem;">
   Inspired by <a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener">OpenWiki</a>
 </div>
