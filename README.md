@@ -1,5 +1,10 @@
 # WakaWiki
 
+[![CI](https://github.com/sonyarianto/wakawiki/actions/workflows/ci.yml/badge.svg)](https://github.com/sonyarianto/wakawiki/actions/workflows/ci.yml)
+[![crates.io](https://img.shields.io/crates/v/wakawiki.svg)](https://crates.io/crates/wakawiki)
+[![npm](https://img.shields.io/npm/v/wakawiki.svg)](https://www.npmjs.com/package/wakawiki)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 A CLI that writes and maintains agent documentation for your codebase. Built in Rust.
 
 Inspired by [OpenWiki](https://github.com/langchain-ai/openwiki).
@@ -11,6 +16,7 @@ Inspired by [OpenWiki](https://github.com/langchain-ai/openwiki).
 - **Tool-calling agent loop** — `list_files`, `read_file`, `search`, `write_doc`
 - **Incremental updates** — `--update` refreshes only what changed
 - **AGENTS.md integration** — appends a reference block so coding agents know where the docs live
+- **Heuristic scan mode** — `--scan` generates instant, zero-LLM documentation by parsing source code directly
 - **GitHub Actions ready** — one-shot `-p` mode works in CI
 
 ## Install
@@ -55,7 +61,9 @@ wakawiki [OPTIONS] [PROMPT]
 Options:
       --init     Configure provider, API key, and model
   -p, --print    Non-interactive one-shot mode
+      --scan     Heuristic scan (no LLM) — instant, deterministic
       --update   Refresh existing wakawiki/ docs
+      --version  Print version
   -h, --help     Show help
 ```
 
