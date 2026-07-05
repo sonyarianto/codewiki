@@ -146,9 +146,7 @@ fn extract_tool_calls(text: &str) -> Option<Vec<ToolCall>> {
         }
 
         if let Ok(v) = serde_json::from_str::<Value>(trimmed) {
-            if v.get("tool").and_then(|t| t.as_str()).is_some()
-                && v.get("args").is_some()
-            {
+            if v.get("tool").and_then(|t| t.as_str()).is_some() && v.get("args").is_some() {
                 tool_calls.push(ToolCall {
                     id: format!("call_{}", tool_calls.len()),
                     name: v["tool"].as_str().unwrap_or("").to_string(),
@@ -162,9 +160,7 @@ fn extract_tool_calls(text: &str) -> Option<Vec<ToolCall>> {
             if let Some(end) = slice.find('}') {
                 let candidate = &slice[..=end];
                 if let Ok(v) = serde_json::from_str::<Value>(candidate) {
-                    if v.get("tool").and_then(|t| t.as_str()).is_some()
-                        && v.get("args").is_some()
-                    {
+                    if v.get("tool").and_then(|t| t.as_str()).is_some() && v.get("args").is_some() {
                         tool_calls.push(ToolCall {
                             id: format!("call_{}", tool_calls.len()),
                             name: v["tool"].as_str().unwrap_or("").to_string(),

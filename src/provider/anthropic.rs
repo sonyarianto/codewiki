@@ -23,9 +23,8 @@ impl AnthropicProvider {
         messages: &[ChatMessage],
         tools: &[ToolDef],
     ) -> Result<ChatResponse, Box<dyn std::error::Error>> {
-        let (system_prompts, conversation): (Vec<&ChatMessage>, Vec<&ChatMessage>) = messages
-            .iter()
-            .partition(|m| m.role == "system");
+        let (system_prompts, conversation): (Vec<&ChatMessage>, Vec<&ChatMessage>) =
+            messages.iter().partition(|m| m.role == "system");
 
         let system_content = system_prompts
             .iter()

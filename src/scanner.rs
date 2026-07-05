@@ -25,7 +25,7 @@ pub fn scan_project(root: &Path) -> Result<Vec<FileEntry>, Box<dyn std::error::E
             Err(_) => continue,
         };
 
-        if !entry.file_type().map_or(false, |ft| ft.is_file()) {
+        if !entry.file_type().is_some_and(|ft| ft.is_file()) {
             continue;
         }
 
@@ -69,10 +69,12 @@ pub fn read_file_lines(
     Ok(lines[start..end].join("\n"))
 }
 
+pub type SearchResult = Vec<(String, usize, String)>;
+
 pub fn search_codebase(
     root: &Path,
     pattern: &str,
-) -> Result<Vec<(String, usize, String)>, Box<dyn std::error::Error>> {
+) -> Result<SearchResult, Box<dyn std::error::Error>> {
     let mut results = Vec::new();
     let entries = scan_project(root)?;
 
@@ -82,14 +84,8 @@ pub fn search_codebase(
             Err(_) => continue,
         };
         for (i, line) in content.lines().enumerate() {
-            if line.contains(pattern) {
-                if results.len() < 50 {
-                    results.push((
-                        entry.relative_path.clone(),
-                        i + 1,
-                        line.trim().to_string(),
-                    ));
-                }
+            if line.contains(pattern) && results.len() < 50 {
+                results.push((entry.relative_path.clone(), i + 1, line.trim().to_string()));
             }
         }
     }

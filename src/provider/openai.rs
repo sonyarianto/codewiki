@@ -97,17 +97,13 @@ impl OpenAiProvider {
             .unwrap_or("")
             .to_string();
 
-        let tool_calls: Option<Vec<ToolCall>> = choice["message"]["tool_calls"]
-            .as_array()
-            .map(|tc_arr| {
+        let tool_calls: Option<Vec<ToolCall>> =
+            choice["message"]["tool_calls"].as_array().map(|tc_arr| {
                 tc_arr
                     .iter()
                     .map(|tc| ToolCall {
                         id: tc["id"].as_str().unwrap_or("").to_string(),
-                        name: tc["function"]["name"]
-                            .as_str()
-                            .unwrap_or("")
-                            .to_string(),
+                        name: tc["function"]["name"].as_str().unwrap_or("").to_string(),
                         arguments: tc["function"]["arguments"]
                             .as_str()
                             .unwrap_or("{}")

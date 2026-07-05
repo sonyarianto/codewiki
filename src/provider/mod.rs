@@ -65,6 +65,6 @@ pub fn create(cfg: &Config) -> LlmProvider {
     }
 }
 
-pub mod openai;
 pub mod anthropic;
+pub mod openai;
 pub mod opencode;

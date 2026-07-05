@@ -209,7 +209,8 @@ pub async fn run_interactive(
         ChatMessage {
             role: "user".into(),
             content: prompts::initial_prompt(
-                initial_prompt.unwrap_or("Please generate comprehensive documentation for this codebase."),
+                initial_prompt
+                    .unwrap_or("Please generate comprehensive documentation for this codebase."),
             ),
         },
     ];

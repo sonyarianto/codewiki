@@ -3,6 +3,10 @@ name = "codewiki"
 version = "0.1.0"
 edition = "2021"
 description = "A CLI that writes and maintains agent documentation for your codebase"
+license = "MIT"
+repository = "https://github.com/sonyarianto/codewiki"
+keywords = ["documentation", "cli", "llm", "agent", "codebase"]
+categories = ["command-line-utilities", "development-tools"]
 
 [[bin]]
 name = "codewiki"

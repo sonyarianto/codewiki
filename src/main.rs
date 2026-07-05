@@ -8,7 +8,10 @@ mod provider;
 mod scanner;
 
 #[derive(Parser)]
-#[command(name = "codewiki", about = "A CLI that writes and maintains agent documentation for your codebase")]
+#[command(
+    name = "codewiki",
+    about = "A CLI that writes and maintains agent documentation for your codebase"
+)]
 struct Cli {
     /// Initialize codewiki: configure provider, API key, and model
     #[arg(long)]

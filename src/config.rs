@@ -49,7 +49,9 @@ pub fn init_config() -> Result<(), Box<dyn std::error::Error>> {
     let (api_key, model, base_url) = match provider {
         4 => {
             let model = dialoguer::Input::new()
-                .with_prompt("Codewiki model override (optional, press Enter to use opencode default)")
+                .with_prompt(
+                    "Codewiki model override (optional, press Enter to use opencode default)",
+                )
                 .allow_empty(true)
                 .interact()?;
             (String::new(), model, None)
@@ -74,11 +76,7 @@ pub fn init_config() -> Result<(), Box<dyn std::error::Error>> {
             let api_key: String = dialoguer::Password::new()
                 .with_prompt("Enter Anthropic API key")
                 .interact()?;
-            (
-                api_key,
-                "claude-sonnet-4-20250514".into(),
-                None,
-            )
+            (api_key, "claude-sonnet-4-20250514".into(), None)
         }
         3 => {
             let api_key: String = dialoguer::Password::new()
