@@ -3,6 +3,7 @@
 [![CI](https://github.com/sonyarianto/wakawiki/actions/workflows/ci.yml/badge.svg)](https://github.com/sonyarianto/wakawiki/actions/workflows/ci.yml)
 [![crates.io](https://img.shields.io/crates/v/wakawiki.svg)](https://crates.io/crates/wakawiki)
 [![npm](https://img.shields.io/npm/v/wakawiki.svg)](https://www.npmjs.com/package/wakawiki)
+[![npm downloads](https://img.shields.io/npm/dm/wakawiki.svg)](https://www.npmjs.com/package/wakawiki)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-pink.svg)](https://github.com/sponsors/sonyarianto)
 
