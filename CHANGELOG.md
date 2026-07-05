@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.7] - 2026-07-05
+
+### Fixed
+- opencode provider timeout raised from 120s to 600s (10 minutes) — local LLMs on consumer hardware can take several minutes per response
+
 ## [0.1.6] - 2026-07-05
 
 ### Added
