@@ -128,3 +128,7 @@ CODWIKI_BASE_URL=https://api.openai.com/v1
 ```
 
 You can also set these as environment variables directly.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
