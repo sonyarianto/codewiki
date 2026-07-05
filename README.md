@@ -16,7 +16,11 @@ Inspired by [OpenWiki](https://github.com/langchain-ai/openwiki).
 ## Install
 
 ```bash
-cargo install --git https://github.com/sonyarianto/wikigen.git
+# npm (Node.js 16+)
+npm install -g wikigen
+
+# or cargo
+cargo install wikigen
 ```
 
 Or build from source:

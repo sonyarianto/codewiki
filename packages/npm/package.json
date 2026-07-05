@@ -1,0 +1,34 @@
+{
+  "name": "wikigen",
+  "version": "0.1.1",
+  "description": "A CLI that writes and maintains agent documentation for your codebase",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonyarianto/wikigen.git"
+  },
+  "homepage": "https://github.com/sonyarianto/wikigen#readme",
+  "bin": {
+    "wikigen": "bin/wikigen"
+  },
+  "scripts": {
+    "postinstall": "node install.js"
+  },
+  "files": [
+    "bin/",
+    "install.js"
+  ],
+  "keywords": [
+    "documentation",
+    "cli",
+    "llm",
+    "agent",
+    "codebase",
+    "wiki"
+  ],
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "os": ["linux", "darwin", "win32"],
+  "cpu": ["x64", "arm64"]
+}
