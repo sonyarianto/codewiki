@@ -5,6 +5,7 @@ mod config;
 mod output;
 mod prompts;
 mod provider;
+mod scan;
 mod scanner;
 
 #[derive(Parser)]
@@ -25,6 +26,10 @@ struct Cli {
     /// Non-interactive mode: run a one-shot prompt and print the result
     #[arg(short = 'p', long = "print")]
     print_mode: bool,
+
+    /// Scan-only mode: generate documentation using heuristics (no LLM)
+    #[arg(long)]
+    scan: bool,
 
     /// Initial prompt to start with (otherwise enters interactive mode)
     prompt: Option<String>,
@@ -54,6 +59,14 @@ async fn main() {
         std::process::exit(1);
     });
     let wakawiki_dir = project_dir.join("wakawiki");
+
+    if cli.scan {
+        if let Err(e) = scan::run(&project_dir) {
+            eprintln!("Scan failed: {e}");
+            std::process::exit(1);
+        }
+        return;
+    }
 
     if cli.update && wakawiki_dir.exists() {
         let mut wiki_meta = output::load_wiki_meta(&wakawiki_dir);
